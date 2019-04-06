@@ -76,8 +76,13 @@ namespace Test
             Assert.True(DateTime.Now.AddDays(3).Date == duracion.Date);
         }
 
+        [Fact]
+        public void CalculoDECantidadOrdenes()
+        {
+            Assert.True(true);
+        }
 
-    
+
     }
 }
 
