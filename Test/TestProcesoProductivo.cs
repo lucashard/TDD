@@ -46,8 +46,13 @@ namespace Test
         [Fact]
         public void CalcularDuracionEnHorasProceso()
         {
-            ProcesoProductivoEmpleadosServicio proc = new ProcesoProductivoEmpleadosServicio(new List<Orden>() { new Orden((new List<Etapas>() { new Etapas(new Empleado() { Nombre = "lucas", Dni = 32638916, Id = 1 } , 2, "Proceso 1") })  ,
-                                                                        new List<MateriasPrima>() { new MateriasPrima() { Nombre = "Pintura", Id = 1, Cantidad = 30, Costo = 1000 } },DateTime.Now) });
+            ProcesoProductivoEmpleadosServicio proc = new ProcesoProductivoEmpleadosServicio(
+                new List<Orden>() {
+                    new Orden((new List<Etapas>() {
+                        new Etapas(
+                            new Empleado() { Nombre = "lucas", Dni = 32638916, Id = 1 } , 2, "Proceso 1") }),
+                            new List<MateriasPrima>() {
+                                new MateriasPrima() { Nombre = "Pintura", Id = 1, Cantidad = 30, Costo = 1000 } },DateTime.Now) });
 
             decimal duracion = proc.CalcularDuracionProducto();
             Assert.True(2 == duracion);
