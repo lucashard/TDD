@@ -16,6 +16,7 @@ namespace Modelo.Servicio
         public decimal CalcularSuedoNeto()
         {
             this.sueldo.SueldoNeto = sueldo.SueldoBruto-(sueldo.SueldoBruto * 17) / 100;
+
             return this.sueldo.SueldoNeto;
         }
 
