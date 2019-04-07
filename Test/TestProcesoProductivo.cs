@@ -23,7 +23,17 @@ namespace Test
 
 
             bool opcion = ProcesoProductivo.SePuedeAgregarOrden();
+
             Assert.True(opcion == true);
+        }
+
+        [Fact]
+        public void AgregarOrden()
+        {
+            var list = ProcesoProductivoGeneral.AgregarOrden(new Orden((new List<Etapas>() { new Etapas(new Empleado() { Nombre = "lucas", Dni = 32638916, Id = 1 }, 20, "Preparacion") }),
+                                                            new List<MateriasPrima>() { new MateriasPrima() { Nombre = "Pintura", Id = 1, Cantidad = 30, Costo = 1000 } }, DateTime.Now));
+            Assert.True(list.Count == 2);
+
         }
 
         [Fact]

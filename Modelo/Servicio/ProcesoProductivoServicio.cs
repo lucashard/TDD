@@ -32,11 +32,11 @@ namespace Modelo
             
         }
 
-        public bool AgregarOrden(Orden orden)
+        public List<Orden> AgregarOrden(Orden orden)
         {
             ListOrdenes.Add(orden);
 
-           return true;
+           return ListOrdenes;
         }
 
         public decimal CalcularDuracionProducto()
