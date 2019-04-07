@@ -77,10 +77,12 @@ namespace Test
         }
 
         [Fact]
-        public void CalculoDECantidadOrdenes()
+        public void SePuedeCerrarOrden()
         {
-            Assert.True(true);
+            DateTime duracion = ProcesoProductivoGeneral.CalcularFechaProducto();
+            Assert.False(DateTime.Now.Date > duracion);
         }
+
 
 
     }
