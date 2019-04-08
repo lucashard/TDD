@@ -12,7 +12,7 @@ namespace Modelo.ValueObjects
             {
                 throw new ExcepcionesDeDominio("El nombre de la persona no puede ser vacio");
             }
-           
+            
         }
         public Nombre()
         { }
