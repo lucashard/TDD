@@ -10,14 +10,22 @@ namespace Test
         private StockServicio stock;
         public TestStock()
         {
-            stock = new StockServicio(new MateriasPrima() { Cantidad = 20, Costo = 30, Nombre = "Cerrucho" },30,40 );
+            stock = new StockServicio(new MateriasPrima() { Cantidad = 20, Costo = 30, Nombre = "Cerrucho" }, 30, 40);
         }
 
         [Fact]
         public void AgregarMateriaPrima()
         {
-            var lista=stock.AgregaMateriaPrima(new MateriasPrima() { Cantidad = 20, Costo = 30, Nombre = "Cerrucho" }, 30, 40);
+            var lista = stock.AgregaMateriaPrima(new MateriasPrima() { Cantidad = 20, Costo = 30, Nombre = "Cerrucho" }, 30, 40);
             Assert.True(lista.Count == 1);
+        }
+
+        [Fact]
+        public void AgregarMateriaPrimaQueYaExiste()
+        {
+            stock.AgregaMateriaPrima(new MateriasPrima() { Cantidad = 20, Costo = 30, Nombre = "Cerrucho" }, 30, 40);
+            int materia = stock.AgregarMateriaPrimaQueYaExiste("Cerrucho" ,10);
+            Assert.True(materia == 40);
         }
             
 

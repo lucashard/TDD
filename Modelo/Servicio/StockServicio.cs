@@ -20,8 +20,16 @@ namespace Modelo
 
         public List<Stock> AgregaMateriaPrima(MateriasPrima materiasPrima, int cantidad, int stockminimo)
         {
+            
             lista.Add(new Stock() { Materias = materiasPrima, Cantidad = cantidad, StockMinimo = stockminimo });
             return lista;
+        }
+
+        public int AgregarMateriaPrimaQueYaExiste(string materiasPrima, int cantidad)
+        {
+            int cant1 = lista.Find(x => x.Materias.Nombre == materiasPrima).Cantidad + cantidad;
+            lista.Find(x => x.Materias.Nombre == materiasPrima).Cantidad = cant1;
+            return cant1;
         }
     }
 }
