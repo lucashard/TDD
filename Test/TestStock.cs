@@ -14,19 +14,25 @@ namespace Test
         }
 
         [Fact]
-        public void AgregarMateriaPrima()
+        public void AgregarMateriaPrimaNoExistenteEnStock()
         {
             var lista = stock.AgregaMateriaPrima(new MateriasPrima() { Cantidad = 20, Costo = 30, Nombre = "Cerrucho" }, 30, 40);
             Assert.True(lista.Count == 1);
         }
 
         [Fact]
-        public void AgregarMateriaPrimaQueYaExiste()
+        public void AgregarStockCantidadMateriaPrima()
         {
             stock.AgregaMateriaPrima(new MateriasPrima() { Cantidad = 20, Costo = 30, Nombre = "Cerrucho" }, 30, 40);
             int materia = stock.AgregarMateriaPrimaQueYaExiste("Cerrucho" ,10);
             Assert.True(materia == 40);
         }
+
+  
+
+
+
+
             
 
     }
