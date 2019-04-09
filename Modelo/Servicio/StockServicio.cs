@@ -13,14 +13,12 @@ namespace Modelo
 
         public StockServicio(MateriasPrima materiasPrima, int cantidad, int stockminimo)
         {
-            this.materiasPrima = materiasPrima;
-            this.Cantidad = cantidad;
-            this.StockMinimo = stockminimo;
+            lista.Add(new Stock() { Materias = materiasPrima, Cantidad = cantidad, StockMinimo = stockminimo });
         }
 
         public List<Stock> AgregaMateriaPrima(MateriasPrima materiasPrima, int cantidad, int stockminimo)
         {
-            if (!lista.Exists(x => x.Materias == materiasPrima))
+            if (!lista.Exists(x => x.Materias.Nombre == materiasPrima.Nombre))
             {
                lista.Add(new Stock() { Materias = materiasPrima, Cantidad = cantidad, StockMinimo = stockminimo });
             }
