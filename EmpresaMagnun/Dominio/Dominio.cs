@@ -10,6 +10,5 @@ namespace EmpresaMagnun
     {
         
         public List<Empleado> empleados { get; set; }
-        public List<ProcesoProductivo> procesoProductivos { get; set; }
     }
 }

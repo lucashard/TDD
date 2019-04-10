@@ -10,19 +10,17 @@ namespace Modelo
         public DateTime FechaInicio { get; set; }
         public List<Etapas> listEtapas { get; set; }
         public List<MateriasPrima> listMateriasPrimas { get; set; }
-        public int CantidadOrdenes=999;
-       
-
-        public Orden()
-        {
-
-        }
+        public int CantidadOrdenes=999;       
 
         public Orden(List<Etapas> etapas, List<MateriasPrima> materiasPrimas,DateTime FechaInicio)
         {
             this.listEtapas = etapas;
             this.listMateriasPrimas = materiasPrimas;
             this.FechaInicio = FechaInicio;
+        }
+
+        public Orden()
+        {
         }
     }
 }

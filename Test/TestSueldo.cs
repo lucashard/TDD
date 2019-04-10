@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Modelo.Servicio;
 using Xunit;
 namespace Test
@@ -10,21 +8,21 @@ namespace Test
         public SueldoServicio sueldos;
         public TestSueldo()
         {
-            sueldos = new SueldoServicio(new Modelo.Sueldos() { SueldoBruto = 60000, Empleado = new Modelo.Empleado() { Dni = 32638916, Nombre = "Lucas", Id = 1 } });
+            sueldos = new SueldoServicio(new Modelo.Sueldos() { SueldoBruto = 60000, Empleado = new Modelo.Empleado() { Dni = 32638916, Nombre = "Lucas", Id = 1,HorasExtras=new List<Modelo.HorasExtras>() } });
         }
 
         [Fact]
         public void CalcularSueldoNeto()
         {
-            decimal sueldo=sueldos.CalcularSuedoNeto();
+            decimal sueldo=sueldos.CalcularSuedoNeto(sueldos.sueldo.SueldoBruto);
             Assert.True(49800 == sueldo);
         }
 
         [Fact]
         public void CalcularHora()
         {
-            sueldos.CalcularSuedoNeto();
-            decimal horasueldo = sueldos.CalcularHoraSueldo();
+            decimal horaNeta=sueldos.CalcularSuedoNeto(sueldos.sueldo.SueldoBruto);
+            decimal horasueldo = sueldos.CalcularHoraSueldo(horaNeta);
             decimal hora = decimal.Parse("311.25");
             Assert.True(hora== horasueldo);
         }

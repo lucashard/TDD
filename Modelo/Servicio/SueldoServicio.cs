@@ -13,16 +13,33 @@ namespace Modelo.Servicio
             this.sueldo = sueldo;
         }
 
-        public decimal CalcularSuedoNeto()
+        public decimal CalcularSuedoNeto(decimal SueldoBruto)
         {
-            this.sueldo.SueldoNeto = sueldo.SueldoBruto-(sueldo.SueldoBruto * 17) / 100;
+            this.sueldo.SueldoNeto = SueldoBruto-(SueldoBruto * 17) / 100+CalcularHoraExtra();
 
             return this.sueldo.SueldoNeto;
         }
 
-        public decimal CalcularHoraSueldo()
+        private decimal CalcularHoraExtra()
         {
-            var hora = sueldo.SueldoNeto / 160;
+            decimal costo = 0;
+            foreach (var item in sueldo.Empleado.HorasExtras)
+            {
+                if (item.HoraInicio.Hours>18)
+                {
+                    costo += CalcularHoraSueldo(sueldo.SueldoBruto) * 2;
+                }
+                else
+                {
+                    costo += CalcularHoraSueldo(sueldo.SueldoBruto) * Convert.ToDecimal("1.5");
+                }
+            }
+            return costo;
+        }
+
+        public decimal CalcularHoraSueldo(decimal sueldoBruto)
+        {
+            var hora = sueldoBruto / 160;
             return hora;
         }
     }

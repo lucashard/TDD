@@ -9,5 +9,7 @@ namespace Modelo
         public int Id { get; set; }
         public string Nombre { get; set; }
         public long Dni { get; set; }
+        public Horarios Horarios { get; set; }
+        public List<HorasExtras> HorasExtras { get; set; }
     }
 }
